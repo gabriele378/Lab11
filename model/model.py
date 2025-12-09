@@ -50,7 +50,7 @@ class Model:
         :return: numero di componenti connesse
         """
         # TODO
-        return self.G.number_of_edges()
+        return self.G.number_of_nodes()
 
     def get_reachable(self, start):
         """
