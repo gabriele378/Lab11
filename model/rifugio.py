@@ -11,7 +11,7 @@ class Rifugio:
 
 
     def __str__(self):
-        return f"{self.id},{self.nome},{self.localita},{self.altitudine},{self.capienza}, {self.aperto}"
+        return self.nome
 
     def __repr__(self):
         return f"{self.id},{self.nome},{self.localita},{self.altitudine},{self.capienza}, {self.aperto}"

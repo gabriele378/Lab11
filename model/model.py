@@ -18,13 +18,12 @@ class Model:
         # TODO
 
         for sentiero in self.sentieri:
-            if sentiero.anno <= year:
-                if sentiero.id_rifugio1 not in self.G:
-                    self.G.add_node(sentiero.id_rifugio1)
-                if sentiero.id_rifugio2 not in self.G:
-                    self.G.add_node(sentiero.id_rifugio2)
+            r1 = self.rifugi[sentiero.id_rifugio1]
+            r2 = self.rifugi[sentiero.id_rifugio2]
 
-                self.G.add_edge(sentiero.id_rifugio1, sentiero.id_rifugio2)
+            self.G.add_node(r1)
+            self.G.add_node(r2)
+            self.G.add_edge(r1, r2)
 
     def get_nodes(self):
         """
@@ -42,7 +41,7 @@ class Model:
         :return: numero di vicini diretti del nodo indicato
         """
         # TODO
-        return self.G.neighbors(node)
+        return self.G.degree[node]
 
     def get_num_connected_components(self):
         """
@@ -50,7 +49,7 @@ class Model:
         :return: numero di componenti connesse
         """
         # TODO
-        return self.G.number_of_nodes()
+        return nx.number_connected_components(self.G)
 
     def get_reachable(self, start):
         """

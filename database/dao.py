@@ -17,7 +17,7 @@ class DAO:
         query = """SELECT * FROM rifugio"""
         cursor.execute(query)
         for row in cursor:
-            result.append(Rifugio(**row))
+            result[row['id']] = Rifugio(**row)
 
         cursor.close()
         conn.close()
@@ -44,9 +44,7 @@ class DAO:
         conn = DBConnect.get_connection()
         result = []
         cursor = conn.cursor(dictionary=True)
-        query = """
-                 
-                 """
+        query = 
         cursor.execute(query)
         for row in cursor:
             result.append(Connessione(**row))
